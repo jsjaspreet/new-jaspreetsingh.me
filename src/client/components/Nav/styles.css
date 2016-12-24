@@ -1,0 +1,43 @@
+.leftNav {
+    display: flex;
+    flex-direction: column;
+    background-color: #92B6B5;
+}
+
+.leftNavLinks {
+    margin-top: 100px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 1005px) {
+    .leftNav {
+        display: none;
+    }
+}
+
+@media (min-width: 1006px) {
+    .topNav {
+        display: none;
+    }
+
+    .leftNav {
+        width: 220px;
+        height: 100vh;
+        position: fixed;
+    }
+}
+
+.appBar {
+    background-color: #92B6B5 !important;
+}
+
+.vertIcon {
+    color: #4d4d4d !important;
+}
+
+.menuItem {
+    font-family: 'Raleway', sans-serif !important;
+}
+
