@@ -37,7 +37,12 @@
     color: #4d4d4d !important;
 }
 
+.homeIcon {
+    fill: #4d4d4d !important;
+}
+
 .menuItem {
     font-family: 'Raleway', sans-serif !important;
+    text-decoration: none;
 }
 

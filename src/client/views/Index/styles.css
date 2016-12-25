@@ -1,13 +1,13 @@
-@media (max-width: 1005px) {
-    .containerStyle {
-        flex-direction: column;
-    }
-}
-
 @media (min-width: 1006px) {
     .body {
         margin-left: 220px;
     }
+}
+
+.body {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column
 }
 
 @media (max-width: 1189px) {
@@ -93,16 +93,6 @@
     font-size: 7rem;
 }
 
-.containerStyle {
-    display: flex;
-}
-
-.body {
-    display: flex;
-    flex-grow: 1;
-    flex-direction: column
-}
-
 .section1 {
     background-color: #E8DDB5;
     display: flex;
@@ -134,38 +124,5 @@
     background: url('../../images/denim.png');
 }
 
-.section3 {
-    height: 460px;
-    background-color: #e9967a;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
 
-.email {
-    text-decoration: none;
-    font-weight: bold;
-    letter-spacing: 0.3rem;
-    line-height: 1.2;
-    color: #373a3c;
-    font-family: Montserrat, sans-serif;
-    font-size: 2.5rem;
-}
 
-@media (max-width: 680px) {
-    .email {
-        display: none;
-    }
-}
-
-.socialIcon {
-    color: #373a3c;
-    text-decoration: none;
-    margin-left: 1.3rem;
-    margin-right: 1.3rem;
-}
-
-.socialIcons {
-    margin-top: 1rem;
-}

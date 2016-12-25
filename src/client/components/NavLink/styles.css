@@ -4,7 +4,9 @@
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    box-shadow: 1px 1px 1px 1px rgba(0,0,0,.2);
+    text-decoration: none;
+    color: black;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, .2);
     background-color: #BEEB9F;
     font-size: 1.3em;
     border: 1px solid #373a3c;
@@ -16,7 +18,7 @@
 }
 
 .linkStyle:hover {
-    background-color: #373a3c;
+    background-color: black;
     color: #BEEB9F;
 }
 

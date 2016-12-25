@@ -1,0 +1,9 @@
+@media (max-width: 1005px) {
+    .containerStyle {
+        flex-direction: column;
+    }
+}
+
+.containerStyle {
+    display: flex;
+}

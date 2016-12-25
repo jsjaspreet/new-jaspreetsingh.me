@@ -1,0 +1,11 @@
+@media (min-width: 1006px) {
+    .body {
+        margin-left: 220px;
+    }
+}
+
+.body {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+}
