@@ -10,7 +10,7 @@ class Index extends Component {
       <div className={styles.body}>
         <div className={styles.section1}>
           <div className={styles.section1Content}>
-            <ProfilePic/>
+            <ProfilePic root/>
             <div className={styles.introText}>
               <h1 className={styles.name}>
                 Jaspreet Singh

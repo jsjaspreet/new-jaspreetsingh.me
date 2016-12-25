@@ -4,7 +4,7 @@ import styles from './styles.css'
 
 const Contact = () => {
   return (
-    <div className={styles.body}>
+    <div className={styles.contactBody}>
       <ContactComponent page/>
     </div>
   )

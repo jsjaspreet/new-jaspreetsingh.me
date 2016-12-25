@@ -24,7 +24,7 @@
 
     .leftNav {
         width: 220px;
-        height: 100vh;
+        height: 100%;
         position: fixed;
     }
 }

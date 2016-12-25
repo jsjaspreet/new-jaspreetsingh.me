@@ -3,6 +3,7 @@ import { BrowserRouter, Match } from 'react-router'
 import Nav from '../components/Nav'
 import Index from './Index'
 import Contact from './Contact'
+import About from './About'
 import styles from './styles.css'
 
 class App extends Component {
@@ -14,6 +15,7 @@ class App extends Component {
           <Nav/>
           <Match exactly pattern="/" component={Index}/>
           <Match pattern="/contact" component={Contact}/>
+          <Match pattern="/about" component={About}/>
         </div>
       </BrowserRouter>
     )
