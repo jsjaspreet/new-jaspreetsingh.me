@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import CircularProgress from 'material-ui/CircularProgress';
-import { connect } from 'react-redux'
+import Disqus from 'react-disqus-thread'
 import ReactMarkdown from 'react-markdown'
 import styles from './styles.css'
 
@@ -17,13 +17,25 @@ class BlogPost extends Component {
   }
 
   render() {
+    const post = (
+      <div>
+        <ReactMarkdown className={styles.blogPost} source={this.state.blogPost}/>
+        <Disqus
+          className={styles.blogComments}
+          shortname="jaspreetsingh-me"
+          identifier={`jaspreetsingh-me-${this.props.params.id}`}
+          title={this.props.params.id}
+        />
+      </div>)
+
     return (
       <div className={styles.blogBody}>
         {
           this.state.blogPost === '' ?
             <CircularProgress className={styles.blogSpinner} size={80} thickness={5}/> :
-            <ReactMarkdown className={styles.blogPost} source={this.state.blogPost}/>
+            post
         }
+
       </div>
     )
   }
