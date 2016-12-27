@@ -1,0 +1,1 @@
+export const GET_BLOGPOST_LINKS = "GET_BLOGPOST_LINKS"

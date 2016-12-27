@@ -1,23 +1,26 @@
-import axios from 'axios'
-import 'babel-polyfill'
+import express from 'express'
+import path from 'path'
+import compression from 'compression'
+import getBlogpostLinks from './requestHandlers/getBlogPostLinks'
 
-async function getStuff() {
-  try {
-    return await axios.get('https://jfdssonplaceholder.typicode.com/posts/1')
-                      .then(({ data }) => data)
-  } catch (err) {
-    console.log("balogney")
-    console.log(err)
-  }
-}
+// express app
+const app = express()
 
-async function run() {
-  try {
-    const x = await getStuff()
-    return x
-  } catch (err) {
-    console.log("dimsum")
-  }
-}
+// compression
+app.use(compression())
 
-run()
+app.use("/build", express.static(path.resolve('./build')))
+
+// Blogpost handlers
+app.get('/api/blogposts', getBlogpostLinks)
+
+app.all('*', (req, res) => {
+  res.sendFile(path.resolve('./build/index.html'))
+})
+
+const port = 8787
+
+app.listen(port, () => console.log(`app listening on port ${port}`))
+
+
+

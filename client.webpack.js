@@ -9,11 +9,12 @@ module.exports = {
     main: './src/client/index.js',
     vendor: ['react', 'react-redux',
              'redux', 'redux-thunk',
-             'redux-promise', 'react-dom']
+             'redux-promise', 'react-dom', 'react-router', 'react-tap-event-plugin']
   },
   output: {
     path: resolve(__dirname, 'build'),
-    filename: '[chunkhash].[id].[name].js'
+    filename: '[chunkhash].[id].[name].js',
+    publicPath: '/build/'
   },
   module: {
     rules: [
@@ -60,15 +61,15 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor', 'manifest'] // Specify the common bundle's name.
     }),
-    new HtmlWebpackPlugin({
-      template: './src/server/views/template.html',
-      filename: 'index.html',
-    }),
     new WebpackMd5Hash(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
       }
-    })
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/server/views/template.html',
+      filename: 'index.html',
+    }),
   ]
 }

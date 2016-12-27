@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router'
 import styles from './styles.css'
 import ProfilePic from '../../components/ProfilePic'
 import Contact from '../../components/Contact'
@@ -38,7 +39,9 @@ class Index extends Component {
             </div>
           </div>
           <div className={styles.blogLink}>
-            Blog
+            <Link to="/blog" className={styles.blogLink}>
+              Blog
+            </Link>
           </div>
         </div>
         <Contact />

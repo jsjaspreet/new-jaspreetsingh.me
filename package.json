@@ -22,6 +22,7 @@
     "babel-preset-react": "^6.11.1",
     "babel-preset-stage-1": "^6.16.0",
     "babel-preset-stage-2": "^6.13.0",
+    "compression-webpack-plugin": "^0.3.2",
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^2.0.0-beta.4",
     "html-webpack-plugin": "^2.24.1",
@@ -36,8 +37,11 @@
   "dependencies": {
     "axios": "^0.15.3",
     "babel-polyfill": "^6.20.0",
+    "compression": "^1.6.2",
+    "express": "^4.14.0",
     "history": "^4.5.0",
     "material-ui": "^0.16.5",
+    "path": "^0.12.7",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-fontawesome": "^1.5.0",
@@ -47,6 +51,7 @@
     "react-tap-event-plugin": "^2.0.1",
     "redux": "^3.6.0",
     "redux-promise": "^0.5.3",
-    "redux-thunk": "^2.1.0"
+    "redux-thunk": "^2.1.0",
+    "s3": "^4.4.0"
   }
 }
