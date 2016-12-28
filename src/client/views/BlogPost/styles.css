@@ -16,17 +16,30 @@
     display: flex;
     flex-direction: column;
     max-width: 33em;
-    margin-left: 2em;
-    margin-right: 2em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
 }
 
 .blogPost h1 {
     font-family: 'Slabo 27px', serif;
-    font-size: 3.6em;
-    margin-top: 0.6em;
-    margin-bottom: 0.6em;
     text-align: center;
     color: #1d1d1d;
+}
+
+@media (max-width: 600px) {
+    .blogPost h1 {
+        font-size: 2.5em;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+}
+
+@media (min-width: 601px) {
+    .blogPost h1 {
+        font-size: 3.6em;
+        margin-top: 0.6em;
+        margin-bottom: 0.6em;
+    }
 }
 
 .blogPost img {
@@ -38,18 +51,44 @@
 
 .blogPost p {
     font-family: 'Open Sans', sans-serif;
-    font-size: 1.2em;
-    line-height: 2em;
-    margin-bottom: 1.2em;
     color: #1d1d1d;
+}
+
+@media (max-width: 600px) {
+    .blogPost p {
+        font-size: 1em;
+        line-height: 1.6em;
+        margin-bottom: 1.6em;
+    }
+}
+
+@media (min-width: 601px) {
+    .blogPost p {
+        font-size: 1.2em;
+        line-height: 2em;
+        margin-bottom: 1.2em;
+    }
 }
 
 .blogPost h3 {
     font-family: 'Montserrat', serif;
-    font-size: 2.4em;
-    margin-bottom: 0.6em;
-    margin-top: 1.2em;
     color: #1d1d1d;
+}
+
+@media (min-width: 601px) {
+    .blogPost h3 {
+        font-size: 2.4em;
+        margin-bottom: 0.6em;
+        margin-top: 1.2em;
+    }
+}
+
+@media (max-width: 600px) {
+    .blogPost h3 {
+        font-size: 1.5em;
+        margin-bottom: 1em;
+        margin-top: 1em;
+    }
 }
 
 .blogSpinner {
@@ -58,6 +97,42 @@
 
 .blogComments {
     margin-top: 2.4em;
-    margin-left: 1em;
-    margin-right: 1em;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+}
+
+.blogPost pre {
+    display: flex;
+}
+
+.blogPost code {
+    -webkit-border-radius: .25em;
+    -moz-border-radius: .25em;
+    border-radius: .25em;
+    padding: .2em;
+    font-family: 'Source Code Pro', monospace;
+    color: #7cfc00;
+    width: 100%;
+    background-color: black;
+}
+
+
+
+@media (max-width: 600px) {
+    .blogPost code {
+        margin-bottom: 1.6em;
+        overflow-x: scroll;
+    }
+
+    .blogPost pre {
+        width: 22em;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+@media (min-width: 601px) {
+    .blogPost code {
+        margin-bottom: 1.2em;
+    }
 }

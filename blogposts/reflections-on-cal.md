@@ -1,6 +1,6 @@
 # Reflections on Cal
 
-![alt text](http://jaspreetsingh.me/images/berkeley.jpg "Berkeley")
+![alt text](https://s3-us-west-2.amazonaws.com/jaspreetsingh.me/images/berkeley.jpg "Berkeley")
 
 Honestly, I didn't cheer when I saw my acceptance to Cal.
 

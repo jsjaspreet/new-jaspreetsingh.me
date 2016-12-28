@@ -6,6 +6,7 @@
   "scripts": {
     "build": "npm run build:client",
     "build:client": "webpack --config client.webpack.js",
+    "watch:client": "webpack -w --config client.webpack.js",
     "build:server": "webpack --config server.webpack.js",
     "dev": "npm run clean && npm run build && webpack-dev-server -w --config client.webpack.js",
     "clean": "rm -rf build"
