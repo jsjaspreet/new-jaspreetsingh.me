@@ -1,12 +1,23 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import styles from './styles.css'
 import ProfilePic from '../../components/ProfilePic'
 import Contact from '../../components/Contact'
+import MiniBlog from '../../components/MiniBlog'
 
 class Index extends Component {
 
   render() {
+    const { thumbnails } = this.props;
+    const displayMiniBlog = thumbnails.length > 0;
+    let miniBlogs = [null, null, null, null]
+    if (displayMiniBlog) {
+      miniBlogs = thumbnails.slice(0, 4)
+                            .map(thumbnail => <MiniBlog root imageLink={thumbnail}/>)
+    }
+
+
     return (
       <div className={styles.body}>
         <div className={styles.section1}>
@@ -23,21 +34,22 @@ class Index extends Component {
           </div>
         </div>
         <div className={styles.section2}>
-          <div className={styles.blogContainer}>
-            <div className={styles.blogRowItem}>
-              Blog 1
-            </div>
-            <div className={styles.blogRowItem}>
-              Blog 2
-            </div>
-
-            <div className={styles.blogRowItem}>
-              Blog 3
-            </div>
-            <div className={styles.blogRowItem}>
-              Blog 4
-            </div>
-          </div>
+          {displayMiniBlog ?
+            <div className={styles.blogContainer}>
+              <div className={styles.blogRowItem}>
+                {miniBlogs[0]}
+              </div>
+              <div className={styles.blogRowItem}>
+                {miniBlogs[1]}
+              </div>
+              <div className={styles.blogRowItem}>
+                {miniBlogs[2]}
+              </div>
+              <div className={styles.blogRowItem}>
+                {miniBlogs[3]}
+              </div>
+            </div> : null
+          }
           <div className={styles.blogLink}>
             <Link to="/blog" className={styles.blogLink}>
               Blog
@@ -50,4 +62,8 @@ class Index extends Component {
   }
 }
 
-export default Index
+function mapStateToProps({ thumbnails }) {
+  return ({ thumbnails })
+}
+
+export default connect(mapStateToProps)(Index)

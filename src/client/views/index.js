@@ -6,12 +6,14 @@ import Nav from '../components/Nav'
 import Index from './Index'
 import Contact from './Contact'
 import About from './About'
+import Blog from './Blog'
 import BlogPost from './BlogPost'
 import styles from './styles.css'
 
 class App extends Component {
   componentWillMount() {
     this.props.getBlogpostLinks()
+    this.props.getBlogpostThumbnails()
   }
 
   render() {
@@ -22,7 +24,7 @@ class App extends Component {
           <Match exactly pattern="/" component={Index}/>
           <Match pattern="/contact" component={Contact}/>
           <Match pattern="/about" component={About}/>
-          <Match pattern="/blog" exactly component={About}/>
+          <Match pattern="/blog" exactly component={Blog}/>
           <Match pattern="/blog/:id" component={BlogPost}/>
         </div>
       </BrowserRouter>

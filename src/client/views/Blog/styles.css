@@ -1,0 +1,41 @@
+@media (min-width: 1006px) {
+    .blogBody {
+        margin-left: 220px;
+        height: 100%;
+        min-height: 100vh;
+    }
+}
+
+@media (max-width: 1005px) {
+    .blogBody {
+        height: calc(100% - 64px);
+        min-height: 100vh;
+    }
+}
+
+.blogBody {
+    display: flex;
+    flex-grow: 1;
+    background: url('../../images/denim.png');
+    flex-direction: column;
+}
+
+@media (max-width: 1210px) {
+    .blogContent {
+        justify-content: space-around;
+    }
+}
+
+@media (min-width: 1211px) {
+    .blogContent {
+        justify-content: space-between;
+    }
+}
+
+.blogContent {
+    margin: auto;
+    display: flex;
+    max-width: 990px;
+    flex-wrap: wrap;
+}
+
