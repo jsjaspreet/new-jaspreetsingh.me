@@ -1,5 +1,6 @@
 import express from 'express'
 import path from 'path'
+import cors from 'cors'
 import compression from 'compression'
 import getBlogpostLinks from './requestHandlers/getBlogPostLinks'
 import getBlogThumbnails from './requestHandlers/getBlogThumbnails'
@@ -9,6 +10,9 @@ const app = express()
 
 // compression
 app.use(compression())
+
+// cors
+app.use(cors())
 
 app.use("/build", express.static(path.resolve('./build')))
 
