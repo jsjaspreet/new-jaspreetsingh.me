@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm run build:client",
+    "build": "npm run build:client && npm run build:server",
+    "rebuild": "npm run clean && npm run build:client && npm run build:server",
     "build:client": "webpack --config client.webpack.js",
     "watch:client": "webpack -w --config client.webpack.js",
     "build:server": "webpack --config server.webpack.js",
