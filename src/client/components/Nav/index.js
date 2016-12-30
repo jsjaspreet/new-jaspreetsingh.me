@@ -41,7 +41,7 @@ const Nav = () => {
     </IconMenu>
   );
   return (
-    <div>
+    <div className={styles.minHeight}>
       <div className={styles.topNav}>
         <AppBar
           className={styles.appBar}

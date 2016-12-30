@@ -11,6 +11,10 @@
     flex-direction: column;
 }
 
+.minHeight {
+    min-height: 64px;
+}
+
 @media (max-width: 1005px) {
     .leftNav {
         display: none;
