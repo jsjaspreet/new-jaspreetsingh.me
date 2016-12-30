@@ -7,7 +7,7 @@ export function getBlogpostLinks() {
     promise = axios.get(`/api/blogposts`)
   }
   else {
-    promise = axios.get(`http://www.jaspreetsingh.me:5050/api/memes`)
+    promise = axios.get(`http://www.jaspreetsingh.me:5050/api/blogposts`)
   }
   return {
     type: GET_BLOGPOST_LINKS,
