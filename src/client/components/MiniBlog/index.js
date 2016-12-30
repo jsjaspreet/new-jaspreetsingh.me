@@ -16,7 +16,9 @@ const MiniBlog = ({ imageLink, root = false }) => {
                                        .join('-')}`}>
       <Card className={styles.cardStyle} style={additionalStyle}>
         <CardMedia
-          overlay={<CardTitle title={blogPostId}/>}
+          overlayContentStyle={{ 'background': 'rgba(0,0,0,0.80)' }}
+          overlay={<CardTitle className={styles.cardTitles}
+                              title={blogPostId}/>}
         >
           <img src={imageLink}/>
         </CardMedia>
