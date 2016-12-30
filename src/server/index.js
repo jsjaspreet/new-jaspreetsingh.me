@@ -8,13 +8,17 @@ import getBlogThumbnails from './requestHandlers/getBlogThumbnails'
 // express app
 const app = express()
 
+const prod = process.env.NODE_ENV === 'production'
+
 // compression
 app.use(compression())
 
 // cors
 app.use(cors())
 
-app.use("/build", express.static(path.resolve('./build')))
+// static
+const maxAge = prod ? 1000 * 60 * 60 * 24 * 30 : 0
+app.use("/build", express.static(path.resolve('./build'), { maxAge }))
 
 // Blogpost handlers
 app.get('/api/blogposts', getBlogpostLinks)
