@@ -11,21 +11,21 @@ const Contact = ({ page = false }) => {
         </a>
       </h1>
       <div className={styles.socialIcons}>
-        <a href="https://www.linkedin.com/in/jsjaspreet" target="_blank">
+        <a href="https://www.linkedin.com/in/jsjaspreet">
           <FontAwesome
             className={styles.socialIcon}
             name='linkedin'
             size='4x'
           />
         </a>
-        <a href="https://www.github.com/jsjaspreet" target="_blank">
+        <a href="https://www.github.com/jsjaspreet">
           <FontAwesome
             className={styles.socialIcon}
             name='github'
             size='4x'
           />
         </a>
-        <a href="mailto:jaspreet_xps@yahoo.com" target="_blank">
+        <a href="mailto:jaspreet_xps@yahoo.com">
           <FontAwesome
             className={styles.socialIcon}
             name='envelope'
