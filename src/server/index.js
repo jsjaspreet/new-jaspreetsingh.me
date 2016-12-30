@@ -20,7 +20,7 @@ app.all('*', (req, res) => {
   res.sendFile(path.resolve('./build/index.html'))
 })
 
-const port = 8787
+const port = 5050
 
 app.listen(port, () => console.log(`app listening on port ${port}`))
 

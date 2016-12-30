@@ -7,7 +7,7 @@ export function getBlogpostLinks() {
     promise = axios.get(`/api/blogposts`)
   }
   else {
-    promise = axios.get(`https://www.jaspreetsingh.com:5050/api/memes`)
+    promise = axios.get(`http://www.jaspreetsingh.me:5050/api/memes`)
   }
   return {
     type: GET_BLOGPOST_LINKS,
@@ -21,7 +21,7 @@ export function getBlogpostThumbnails() {
     promise = axios.get(`/api/thumbnails`)
   }
   else {
-    promise = axios.get(`https://www.jaspreetsingh.com:5050/api/thumbnails`)
+    promise = axios.get(`http://www.jaspreetsingh.me:5050/api/thumbnails`)
   }
   return {
     type: GET_BLOGPOST_THUMBNAILS,
