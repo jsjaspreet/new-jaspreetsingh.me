@@ -8,7 +8,7 @@ import getBlogThumbnails from './requestHandlers/getBlogThumbnails'
 // express app
 const app = express()
 
-const prod = process.env.NODE_ENV === 'production'
+const isProd = process.env.NODE_ENV === 'production'
 
 // compression
 app.use(compression())
@@ -17,7 +17,7 @@ app.use(compression())
 app.use(cors())
 
 // static
-const maxAge = prod ? 1000 * 60 * 60 * 24 * 30 : 0
+const maxAge = isProd ? 1000 * 60 * 60 * 24 * 30 : 0
 app.use("/build", express.static(path.resolve('./build'), { maxAge }))
 
 // Blogpost handlers
@@ -30,7 +30,10 @@ app.all('*', (req, res) => {
 
 const port = 5050
 
-app.listen(port, () => console.log(`app listening on port ${port}`))
+app.listen(port, () => console.log(`
+app listening on port ${port}
+Production? ${prod}
+`))
 
 
 
