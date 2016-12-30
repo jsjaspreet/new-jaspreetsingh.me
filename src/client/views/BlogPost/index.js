@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ReactGA from 'react-ga'
 import axios from 'axios'
 import CircularProgress from 'material-ui/CircularProgress';
 import Disqus from 'react-disqus-thread'
@@ -14,6 +15,8 @@ class BlogPost extends Component {
   componentWillMount() {
     axios.get(`https://s3-us-west-2.amazonaws.com/jaspreetsingh.me/blogposts/${this.props.params.id}.md`)
          .then(({ data }) => this.setState({ blogPost: data }))
+    ReactGA.set({ page: window.location.pathname });
+    ReactGA.pageview(window.location.pathname);
   }
 
   render() {

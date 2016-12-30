@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ReactGA from 'react-ga'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import styles from './styles.css'
@@ -7,6 +8,11 @@ import Contact from '../../components/Contact'
 import MiniBlog from '../../components/MiniBlog'
 
 class Index extends Component {
+
+  componentWillMount() {
+    ReactGA.set({ page: window.location.pathname });
+    ReactGA.pageview(window.location.pathname);
+  }
 
   render() {
     const { thumbnails } = this.props;

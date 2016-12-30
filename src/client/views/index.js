@@ -9,11 +9,13 @@ import About from './About'
 import Blog from './Blog'
 import BlogPost from './BlogPost'
 import styles from './styles.css'
-
+import ReactGA from 'react-ga'
 class App extends Component {
+
   componentWillMount() {
     this.props.getBlogpostLinks()
     this.props.getBlogpostThumbnails()
+    ReactGA.initialize('UA-54725110-1')
   }
 
   render() {

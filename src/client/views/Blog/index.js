@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import ReactGA from 'react-ga'
 import * as actions from '../../actions'
 import styles from './styles.css'
 import MiniBlog from '../../components/MiniBlog'
@@ -7,6 +8,8 @@ import MiniBlog from '../../components/MiniBlog'
 class Blog extends Component {
   componentWillMount() {
     this.props.getBlogpostThumbnails()
+    ReactGA.set({ page: window.location.pathname });
+    ReactGA.pageview(window.location.pathname);
   }
 
   render() {
