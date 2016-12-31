@@ -12,6 +12,13 @@ class BlogPost extends Component {
     this.state = { blogPost: '' }
   }
 
+  componentDidUpdate() {
+    const nodes = document.getElementsByTagName("code")
+    for (const node of nodes) {
+      hljs.highlightBlock(node)
+    }
+  }
+
   componentWillMount() {
     axios.get(`https://s3-us-west-2.amazonaws.com/jaspreetsingh.me/blogposts/${this.props.params.id}.md`)
          .then(({ data }) => this.setState({ blogPost: data }))
@@ -22,7 +29,10 @@ class BlogPost extends Component {
   render() {
     const post = (
       <div>
-        <ReactMarkdown className={styles.blogPost} source={this.state.blogPost}/>
+        <ReactMarkdown
+          className={styles.blogPost}
+          source={this.state.blogPost}
+        />
         <Disqus
           className={styles.blogComments}
           shortname="jaspreetsingh-me"
