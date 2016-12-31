@@ -14,9 +14,7 @@ class BlogPost extends Component {
 
   componentDidUpdate() {
     const nodes = document.getElementsByTagName("code")
-    for (const node of nodes) {
-      hljs.highlightBlock(node)
-    }
+    nodes.forEach((node) => hljs.highlightBlock(node))
   }
 
   componentWillMount() {
