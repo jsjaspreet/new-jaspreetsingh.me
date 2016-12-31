@@ -31,11 +31,13 @@ Caching static assets minimizes the amount of time users spend loading your webs
 
 ```
 // maxAge in milliseconds
-const maxAge = 1000 * 60 * 60 * 24 
-// Add maxAge option to static middleware
-app.use("/build",
-  express.static(path.resolve('./build'), { maxAge }))
 
+const maxAge = 1000 * 60 * 60 * 24 
+
+// Add maxAge option to static middleware
+
+app.use("/build", 
+  express.static(path.resolve('./build'), { maxAge }))
 ```
 
 Checkout the official [Express guide](https://expressjs.com/en/advanced/best-practice-performance.html) for more info.
