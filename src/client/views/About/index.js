@@ -22,7 +22,9 @@ class About extends Component {
             software engineer at <a className={styles.link} href="https://www.datascience.com"
                                     target="_blank">DataScience</a> in Culver City, California. I'm a huge believer
             in life-long learning and continual self-improvement; in my free time I enjoy
-            taking online courses, working out, playing with my cat Pani, posting dank memes,
+            taking online courses, working out, playing with my cat Pani, <a className={styles.link}
+                                                                             href="https://topkekkle.com"
+                                                                             target="_blank">posting dank memes</a>,
             and learning more about the tech industry.
           </div>
           <div className={styles.mainText}>
