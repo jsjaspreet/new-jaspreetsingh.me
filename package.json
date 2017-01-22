@@ -9,7 +9,8 @@
     "build:client": "webpack --config client.webpack.js",
     "watch:client": "webpack -w --config client.webpack.js",
     "build:server": "webpack --config server.webpack.js",
-    "dev": "npm run clean && npm run build && webpack-dev-server -w --config client.webpack.js",
+    "dev": "./pre-build.sh && docker build -t jsme:latest . && ./post-build.sh && docker-compose up -d",
+    "docker": "docker-compose up -d",
     "clean": "rm -rf build"
   },
   "keywords": [],

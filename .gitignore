@@ -4,3 +4,6 @@ node_modules
 aws.cred
 export-aws.sh
 blogimage-thumbnails
+.yarn-cache.tgz
+docker-compose.yml
+yarn.lock.dual
