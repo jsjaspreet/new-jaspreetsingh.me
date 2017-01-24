@@ -11,17 +11,3 @@ create table workouts (
   workout_type varchar(8) not null
 );
 
-insert into "workouts" ("workout", "workout_date", "duration",
-                        "calories", "fat_burn_time", "fitness_time",
-                        "avg_heart_rate", "max_heart_rate", "workout_type")
-values
-('CHEST_ABS',
- '12/18/16',
- 'PT57M39S',
- 481,
- 'PT36M42S',
- 'PT20M48S',
- 123,
- 172,
- 'RES');
-
