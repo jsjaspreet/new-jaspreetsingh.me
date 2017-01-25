@@ -2,23 +2,22 @@ import express from 'express'
 import path from 'path'
 import cors from 'cors'
 import pg from 'pg'
-import DataLoader from 'dataloader'
-import { graphql } from 'graphql'
 import graphqlHTTP from 'express-graphql'
-import pgdbCreator from '../../database/pgdb'
 import pgConfigs from '../../postgres/config'
 import compression from 'compression'
 import getBlogpostLinks from './requestHandlers/getBlogPostLinks'
 import getBlogThumbnails from './requestHandlers/getBlogThumbnails'
+import rootSchema from '../../schema'
 
 // express app
 const app = express()
-const nodeEnv = process.env.NODE_ENV
+const nodeEnv = process.env.NODE_ENV || "development"
+
+console.log(`Running in ${nodeEnv}`)
 
 // PG setup
 const pgConfig = pgConfigs[nodeEnv]
 const pgPool = new pg.Pool(pgConfig)
-const pgdb = pgdbCreator(pgPool)
 
 const isProd = nodeEnv === 'production'
 
@@ -29,13 +28,11 @@ app.use(compression())
 app.use(cors())
 
 app.use('/graphql', (req, res) => {
-  const loaders = {}
   graphqlHTTP({
     schema: rootSchema,
     graphiql: true,
     context: {
-      pgPool,
-      loaders
+      pgPool
     }
   })(req, res)
 })
