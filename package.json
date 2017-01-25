@@ -51,6 +51,8 @@
     "cors": "^2.8.1",
     "dataloader": "^1.2.0",
     "express": "^4.14.0",
+    "express-graphql": "^0.6.2",
+    "graphql": "^0.9.0",
     "history": "^4.5.0",
     "humps": "^2.0.0",
     "lodash": "^4.17.4",
