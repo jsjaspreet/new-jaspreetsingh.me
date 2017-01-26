@@ -17,6 +17,29 @@ export default (pgPool) => {
       `, [date]).then(res => {
         return humps.camelizeKeys(res.rows[0])
       })
+    },
+    addNewWorkout(
+      {
+        workout, workoutDate, duration, calories, fatBurnTime, fitnessTime, avgHeartRate, maxHeartRate, workoutType
+      }) {
+      return pgPool.query(`
+        insert into workouts("workout",
+          "workout_date",
+          "duration",
+          "calories",
+          "fat_burn_time",
+          "fitness_time",
+          "avg_heart_rate",
+          "max_heart_rate",
+          "workout_type")
+        values
+        ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+        returning *
+      `, [workout, workoutDate, duration, calories, fatBurnTime, fitnessTime, avgHeartRate, maxHeartRate,
+          workoutType]).then(res => {
+        return humps.camelizeKeys(res.rows[0])
+      })
+
     }
   }
 }

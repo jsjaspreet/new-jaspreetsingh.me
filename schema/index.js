@@ -6,6 +6,7 @@ import {
 } from 'graphql'
 import WorkoutType from './types/workout'
 import pgdbCreator from '../database/pgdb'
+import AddWorkoutMutation from './mutations/add-workout'
 
 const RootQueryType = new GraphQLObjectType({
   name: 'RootQueryType',
@@ -23,8 +24,17 @@ const RootQueryType = new GraphQLObjectType({
   }
 })
 
+const RootMutationType = new GraphQLObjectType({
+  name: 'RootMutationType',
+  fields: () => ({
+    AddWorkout: AddWorkoutMutation
+  })
+})
+
+
 const RootSchema = new GraphQLSchema({
-  query: RootQueryType
+  query: RootQueryType,
+  mutation: RootMutationType
 })
 
 export default RootSchema
