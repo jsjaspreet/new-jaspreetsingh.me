@@ -10,12 +10,12 @@ export default (pgPool) => {
         return humps.camelizeKeys(res.rows)
       })
     },
-    getWorkoutByDate(date) {
+    getWorkoutsByDate(date) {
       return pgPool.query(`
       select * from workouts
       where workout_date = $1
       `, [date]).then(res => {
-        return humps.camelizeKeys(res.rows[0])
+        return humps.camelizeKeys(res.rows)
       })
     },
     addNewWorkout(

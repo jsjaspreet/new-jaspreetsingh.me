@@ -8,6 +8,7 @@ import Contact from './Contact'
 import About from './About'
 import Blog from './Blog'
 import BlogPost from './BlogPost'
+import Fitness from './Fitness'
 import styles from './styles.css'
 import ReactGA from 'react-ga'
 class App extends Component {
@@ -26,6 +27,7 @@ class App extends Component {
           <Match exactly pattern="/" component={Index}/>
           <Match pattern="/contact" component={Contact}/>
           <Match pattern="/about" component={About}/>
+          <Match pattern="/fitness" component={Fitness}/>
           <Match pattern="/blog" exactly component={Blog}/>
           <Match pattern="/blog/:id" component={BlogPost}/>
         </div>

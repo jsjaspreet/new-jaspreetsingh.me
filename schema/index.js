@@ -18,7 +18,7 @@ const RootQueryType = new GraphQLObjectType({
       },
       resolve: (obj, { date }, { loaders, pgPool }) => {
         const pgdb = pgdbCreator(pgPool)
-        return date ? [pgdb.getWorkoutByDate(date)] : pgdb.getWorkouts()
+        return date ? pgdb.getWorkoutsByDate(date) : pgdb.getWorkouts()
       }
     }
   }
