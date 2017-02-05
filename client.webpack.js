@@ -1,5 +1,6 @@
 const WebpackMd5Hash = require('webpack-md5-hash')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const BabelRelayPlugin = require('./babelPluginRelay')
 const webpack = require('webpack')
 const { resolve } = require('path')
 
@@ -20,8 +21,10 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        loaders: 'babel-loader',
-        exclude: /node_modules/
+        use: [{
+          loader: 'babel-loader'
+        }],
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/,
@@ -71,6 +74,6 @@ module.exports = {
       template: './src/server/views/template.html',
       filename: 'index.html',
       favicon: './favicon.ico'
-    }),
+    })
   ]
 }

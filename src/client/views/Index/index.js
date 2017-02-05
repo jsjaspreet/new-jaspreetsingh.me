@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ReactGA from 'react-ga'
 import { connect } from 'react-redux'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 import styles from './styles.css'
 import ProfilePic from '../../components/ProfilePic'
 import Contact from '../../components/Contact'
@@ -19,8 +19,7 @@ class Index extends Component {
     const displayMiniBlog = thumbnails.length > 0;
     let miniBlogs = [null, null, null, null]
     if (displayMiniBlog) {
-      miniBlogs = thumbnails.slice(0, 4)
-                            .map(thumbnail => <MiniBlog root imageLink={thumbnail}/>)
+      miniBlogs = thumbnails.slice(0, 4).map(thumbnail => <MiniBlog root imageLink={thumbnail}/>)
     }
 
 
@@ -73,3 +72,5 @@ function mapStateToProps({ thumbnails }) {
 }
 
 export default connect(mapStateToProps)(Index)
+
+

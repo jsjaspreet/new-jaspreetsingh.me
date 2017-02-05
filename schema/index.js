@@ -8,21 +8,22 @@ import WorkoutType from './types/workout'
 import pgdbCreator from '../database/pgdb'
 import AddWorkoutMutation from './mutations/add-workout'
 
-const RootQueryType = new GraphQLObjectType({
-  name: 'RootQueryType',
+const storeType = new GraphQLObjectType({
+  name: 'Store',
   fields: {
     workouts: {
       type: new GraphQLList(WorkoutType),
       args: {
         date: { type: GraphQLString }
       },
-      resolve: (obj, { date }, { loaders, pgPool }) => {
+      resolve: (obj, { date }, { unused, pgPool }) => {
         const pgdb = pgdbCreator(pgPool)
         return date ? pgdb.getWorkoutsByDate(date) : pgdb.getWorkouts()
       }
     }
   }
 })
+
 
 const RootMutationType = new GraphQLObjectType({
   name: 'RootMutationType',
@@ -33,7 +34,15 @@ const RootMutationType = new GraphQLObjectType({
 
 
 const RootSchema = new GraphQLSchema({
-  query: RootQueryType,
+  query: new GraphQLObjectType({
+    name: 'Query',
+    fields: () => ({
+      store: {
+        type: storeType,
+        resolve: () => ({})
+      }
+    })
+  }),
   mutation: RootMutationType
 })
 

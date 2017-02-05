@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 import styles from './styles.css'
 import smallLogo from '../../images/JS-1-small-black.png'
 import bigLogo from '../../images/JS-1-black.png'

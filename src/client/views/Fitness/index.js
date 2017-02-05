@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
+import Relay from 'react-relay'
 import ReactGA from 'react-ga'
 import styles from './styles.css'
 import WorkoutCard from '../../components/WorkoutCard'
+
 
 class Fitness extends Component {
 
@@ -23,5 +25,7 @@ class Fitness extends Component {
     )
   }
 }
+
+
 
 export default Fitness

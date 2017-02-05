@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card, CardMedia, CardTitle } from 'material-ui/Card'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 import styles from './styles.css'
 
 const MiniBlog = ({ imageLink, root = false }) => {

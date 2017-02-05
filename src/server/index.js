@@ -1,7 +1,12 @@
 import express from 'express'
+import fs from 'fs'
 import path from 'path'
 import cors from 'cors'
 import pg from 'pg'
+import 'babel-core/register'
+import 'babel-polyfill'
+import { graphql } from 'graphql'
+import { introspectionQuery } from 'graphql/utilities'
 import graphqlHTTP from 'express-graphql'
 import pgConfigs from '../../postgres/config'
 import compression from 'compression'
@@ -36,6 +41,14 @@ app.use('/graphql', (req, res) => {
     }
   })(req, res)
 })
+
+//graphql(rootSchema, introspectionQuery).then((data) => {
+//  console.log('writing data')
+//  fs.writeFile('/home/jsjaspreet/dev/projects/new-js.me/fitnessSchema.json', JSON.stringify(data, null, 2), err => {
+//    if(err) throw err
+//    console.log("Wrote json schema")
+//  })
+//})
 
 // static
 const maxAge = isProd ? 1000 * 60 * 60 * 24 * 30 : 0
