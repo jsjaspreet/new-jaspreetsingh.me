@@ -9,7 +9,7 @@ import Contact from './Contact'
 import About from './About'
 import Blog from './Blog'
 import BlogPost from './BlogPost'
-import Fitness from './Fitness'
+import { FitnessContainer, FitnessRoute } from './Fitness'
 import styles from './styles.css'
 import ReactGA from 'react-ga'
 
@@ -21,14 +21,7 @@ class App extends Component {
     ReactGA.initialize('UA-54725110-1')
   }
 
-  componentDidMount() {
-    console.log("after mount")
-    setTimeout(() => console.log(store.getState()), 5000)
-  }
-
   render() {
-    console.log(this.props)
-    console.log(store.getState())
     return (
       <BrowserRouter>
         <div className={styles.containerStyle}>
@@ -36,7 +29,13 @@ class App extends Component {
           <Route exact path="/" component={Index}/>
           <Route path="/contact" component={Contact}/>
           <Route path="/about" component={About}/>
-          <Route path="/fitness" component={Fitness}/>
+          <Route path="/fitness" children={({ match }) => {
+            return match ?
+              <Relay.RootContainer
+                Component={FitnessContainer}
+                route={new FitnessRoute()}
+              /> : null
+          }}/>
           <Route path="/blog" exact component={Blog}/>
           <Route path="/blog/:id" component={BlogPost}/>
         </div>
@@ -45,42 +44,4 @@ class App extends Component {
   }
 }
 
-App.propTypes = {
-  getBlogpostLinks: PropTypes.function,
-  getBlogpostThumbnails: PropTypes.function
-}
-
-const relayApp = Relay.createContainer(App, {
-  fragments: {
-    store: () => Relay.QL`
-      fragment on Store {
-          workouts {
-            id
-            workout
-            workoutDate
-            calories
-            duration {
-              minutes
-              seconds
-              hours
-            }
-            fatBurnTime {
-              minutes
-              seconds
-              hours
-            }
-            fitnessTime {
-              minutes
-              seconds
-              hours
-            }
-            avgHeartRate
-            maxHeartRate
-            workoutType
-          }
-    }
-    `
-  }
-})
-
-export default relayApp
+export default App

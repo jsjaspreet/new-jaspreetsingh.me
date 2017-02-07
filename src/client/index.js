@@ -9,24 +9,10 @@ injectTapEventPlugin();
 import store from "./store"
 import App from './views';
 
-class HomeRoute extends Relay.Route {
-  static routeName = 'Home'
-  static queries = {
-    store: (Component) => Relay.QL`
-                query MainQuery {
-                 store { ${Component.getFragment('store')} }
-                 }
-               `
-  }
-}
-
 ReactDOM.render(
   <Provider store={store}>
     <MuiThemeProvider>
-      <Relay.RootContainer
-        Component={App}
-        route={new HomeRoute()}
-      />
+      <App/>
     </MuiThemeProvider>
   </Provider>,
   document.getElementById('app'))
